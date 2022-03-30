@@ -6,7 +6,7 @@ import os
 from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
-import telebot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
+import .sql_helper.pm_permit_sql as pmpermit_sql
 from userbot import ALIVE_NAME, CMD_HELP, bot, PMPERMIT_PIC, BOTLOG_CHATID, PM_AUTO_BAN, BOT_USERNAME, PM_LIMIT
 from userbot.utils import flicks_cmd
 
