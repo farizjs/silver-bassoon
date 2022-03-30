@@ -23,7 +23,7 @@ from math import ceil
 from telethon import Button, custom, events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
-from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot, tgbot, PMPERMIT_PIC
+from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST, bot, tgbot, PMPERMIT_PIC, BOT_USERNAME, BOTLOG_CHATID
 
 TELEPIC = PMPERMIT_PIC
 
@@ -73,7 +73,7 @@ if BOT_USERNAME is not None and tgbot is not None:
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid and query.startswith("**PM"):
+        if event.query.user_id == myid and query.startswith("**PM"):
             TELEBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MESAG)
             result = builder.photo(
                 file=TELEPIC,
@@ -92,7 +92,7 @@ if BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid:
+        if event.query.user_id == myid:
             reply_pop_up_alert = "Ini bukan untukmu, tuan!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -102,7 +102,7 @@ if BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"req")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid:
+        if event.query.user_id == myid:
             reply_pop_up_alert = "Ini bukan untukmu, tuan!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -120,7 +120,7 @@ if BOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"chat")))
     async def on_pm_click(event):
         event.query.user_id
-        if event.query.user_id == bot.uid:
+        if event.query.user_id == myid:
             reply_pop_up_alert = "Ini bukan untukmu, tuan!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -137,7 +137,7 @@ if BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"plshelpme")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid:
+        if event.query.user_id == myid:
             reply_pop_up_alert = "Ini bukan untukmu, tuan!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
@@ -154,7 +154,7 @@ if BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"heheboi")))
     async def on_pm_click(event):
-        if event.query.user_id == bot.uid:
+        if event.query.user_id == myid:
             reply_pop_up_alert = "Ini bukan untukmu, tuan!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
