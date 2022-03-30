@@ -152,7 +152,7 @@ async def approve_p_m(event):
 
 @bot.on(events.NewMessage(incoming=True))
 async def on_new_private_message(event):
-    if event.sender_id == bot.uid:
+    if event.sender_id == myid:
         return
 
     if BOTLOG_CHATID is None:
