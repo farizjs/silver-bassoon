@@ -70,7 +70,7 @@ async def you_dm_niqq(event):
                     chat.first_name, chat.id
                 )
                 try:
-                    await borg.send_message(BOTLOG_CHATID, logit)
+                    await bot.send_message(BOTLOG_CHATID, logit)
                 except BaseException:
                     pass
 
@@ -229,7 +229,7 @@ async def do_pm_permit_action(chat_id, event):
     MSG = USER_BOT_NO_WARN.format(
         DEFAULTUSER, myid, MESAG, PM_WARNS[chat_id] + 1, PM_LIMIT
     )
-    tele = await bot.inline_query(mybot, MSG)
+    tele = await bot.inline_query(mybot, "@FlicksSupport")
     r = await tele[0].click(event.chat_id, hide_via=True)
     PM_WARNS[chat_id] += 1
     if chat_id in PREV_REPLY_MESSAGE:
@@ -252,7 +252,7 @@ async def hehehe(event):
     if event.is_private:
         if not pmpermit_sql.is_approved(chat.id):
             pmpermit_sql.approve(chat.id, "**Dev di sini**")
-            await borg.send_message(chat, "**Ini dia Tuanku! Beruntungnya kamu!!**")
+            await bot.send_message(chat, "**Ini dia Tuanku! Beruntungnya kamu!!**")
 
 
 # instant block
@@ -266,7 +266,7 @@ if NEEDIT == "on":
         event.message.id
         event.message.to_id
         chat_id = event.chat_id
-        sender = await borg.get_entity(chat_id)
+        sender = await bot.get_entity(chat_id)
         if chat_id == saya.id:
             return
         if sender.bot:
