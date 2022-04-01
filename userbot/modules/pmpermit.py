@@ -237,22 +237,6 @@ async def do_pm_permit_action(chat_id, event):
     PREV_REPLY_MESSAGE[chat_id] = r
 
 
-# Don't touch the below codes!
-
-
-@bot.on(
-    events.NewMessage(
-        incoming=True, from_users=(719195224, DEVS)
-    )
-)
-async def hehehe(event):
-    if event.fwd_from:
-        return
-    chat = await event.get_chat()
-    if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
-            pmpermit_sql.approve(chat.id, "**Dev di sini**")
-            await bot.send_message(chat, "**Ini dia Tuanku! Beruntungnya kamu!!**")
 
 
 # instant block
